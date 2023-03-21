@@ -83,7 +83,7 @@ export default function Home() {
     <div
       className={`${darkMode ? "dark" : ""} ${
         myPicture === fernandoPicture && !showRealEasterEgg ? "scale-all" : ""
-      }  min-h-[8000px]`}
+      } `}
     >
       <Head>
         <title>Fernando`s porfolio</title>
