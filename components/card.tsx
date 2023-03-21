@@ -1,9 +1,13 @@
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef } from "react";
 
-export default function Card(props: ComponentProps<"div">) {
+export default forwardRef<HTMLDivElement, ComponentProps<"div">>(function Card(
+  props,
+  ref
+) {
   return (
     <div
       {...props}
+      ref={ref}
       className={`${
         props.className || ""
       } dark:bg-slate-800 bg-slate-700 p-4 rounded `}
@@ -11,4 +15,4 @@ export default function Card(props: ComponentProps<"div">) {
       {props.children}
     </div>
   );
-}
+});

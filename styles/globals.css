@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl text-cyan-500 text-center mt-6 mb-2 xl:text-3xl;
+  @apply text-xl text-cyan-500 text-center  xl:text-3xl my-16;
 }
 
 h4 {
@@ -42,6 +42,7 @@ h4 {
   transition-duration: 25s;
   @apply text-[2rem] lg:text-[8rem];
 }
+
 .st0 {
   fill: #b22234;
 }

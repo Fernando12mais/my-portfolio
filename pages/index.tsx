@@ -19,12 +19,16 @@ const showEasterEggTimer = 25 * 1000;
 const statusCodes = [
   100, 101, 102, 103, 200, 201, 202, 203, 204, 401, 405, 411, 599,
 ];
+
 export default function Home() {
   const [language, setLanguage] =
     useState<keyof ReturnType<typeof languages>>("pt");
   const [darkMode, setDarkMode] = useState(true);
   const [myPicture, setMyPicture] = useState(fernando3d);
   const [showRealEasterEgg, setShowRealEasterEgg] = useState(false);
+  const firstRenderRef = useRef(true);
+
+  const elements = useRef<HTMLElement[]>([]);
 
   const randomStatusCode = statusCodes.at(
     statusCodes.length * Math.random() || 0
@@ -32,7 +36,26 @@ export default function Home() {
 
   useEffect(() => {
     setDarkMode(localStorage.getItem("theme") === "dark");
+    const observer = new IntersectionObserver((entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-contentIn");
+        } else {
+          entry.target.classList.remove("animate-contentIn");
+        }
+      })
+    );
+
+    if (elements.current.length)
+      elements.current.forEach(
+        (element) => element && observer.observe(element)
+      );
+    () => {
+      firstRenderRef.current = false;
+    };
   }, []);
+
+  console.log(elements);
 
   useEffect(() => {
     if (myPicture === fernandoPicture) {
@@ -60,7 +83,7 @@ export default function Home() {
     <div
       className={`${darkMode ? "dark" : ""} ${
         myPicture === fernandoPicture && !showRealEasterEgg ? "scale-all" : ""
-      }`}
+      }  min-h-[8000px]`}
     >
       <Head>
         <title>Fernando`s porfolio</title>
@@ -101,8 +124,11 @@ export default function Home() {
           </nav>
         </header>
 
-        <section className="max-w-7xl mx-auto">
+        <section className="max-w-7xl mx-auto mt-16">
           <h1
+            ref={(element) => {
+              if (element) elements.current[0] = element;
+            }}
             className={`relative text-center text-3xl text-transparent bg-clip-text bg-gradient-to-r  from-[#00923f] to-[#f8c300] mb-4 mt-4 xl:text-7xl ${
               language == "eng"
                 ? "from-[#b22234] via-[#ffffff] to-[#1a16c8]"
@@ -122,16 +148,42 @@ export default function Home() {
             )}
           </h1>
 
-          <h2>{selectedLanguage.role}</h2>
-          <p className="text-center mt-4">{selectedLanguage.description}</p>
+          <h2
+            className="my-16"
+            ref={(element) => {
+              if (element) elements.current[1] = element;
+            }}
+          >
+            {selectedLanguage.role}
+          </h2>
+          <p
+            ref={(element) => {
+              if (element) elements.current[2] = element;
+            }}
+            className="text-center mt-4"
+          >
+            {selectedLanguage.description}
+          </p>
 
-          <h3>{selectedLanguage.about.title}</h3>
+          <h3
+            className="my-8"
+            ref={(element) => {
+              if (element) elements.current[3] = element;
+            }}
+          >
+            {selectedLanguage.about.title}
+          </h3>
           <Draggable
-            onDrag={(event) => {
+            onDrag={() => {
               if (myPicture !== fernandoPicture) setMyPicture(fernandoPicture);
             }}
           >
-            <div className="w-44 h-44 mx-auto relative">
+            <div
+              ref={(element) => {
+                if (element) elements.current[4] = element;
+              }}
+              className="w-44 h-44 mx-auto relative"
+            >
               <Image
                 src={myPicture}
                 alt="Fernando`s picture "
@@ -141,12 +193,29 @@ export default function Home() {
             </div>
           </Draggable>
           {myPicture === fernandoPicture && (
-            <p className="text-amber-300 xl:text-2xl text-center">
+            <p
+              ref={(element) => {
+                if (element) elements.current[5] = element;
+              }}
+              className="text-amber-300 xl:text-2xl text-center"
+            >
               {easterEggPhrase}
             </p>
           )}
-          <ul className="mt-4 text-center">{selectedLanguage.about.content}</ul>
-          <div className="text-5xl mt-4 flex justify-center gap-4">
+          <ul
+            ref={(element) => {
+              if (element) elements.current[6] = element;
+            }}
+            className="mt-4 text-center"
+          >
+            {selectedLanguage.about.content}
+          </ul>
+          <div
+            ref={(element) => {
+              if (element) elements.current[7] = element;
+            }}
+            className="text-5xl mt-4 flex justify-center gap-4"
+          >
             <Link
               href={`https://wa.me/5551997006226/?text=${
                 language === "pt"
@@ -165,16 +234,32 @@ export default function Home() {
             </Link>
           </div>
 
-          <h3>{selectedLanguage.skills.title}</h3>
+          <h3
+            ref={(element) => {
+              if (element) elements.current[8] = element;
+            }}
+          >
+            {selectedLanguage.skills.title}
+          </h3>
           <div className="flex flex-col md:flex-row flex-wrap gap-4">
-            <Card className="flex-1">
+            <Card
+              ref={(element) => {
+                if (element) elements.current[9] = element;
+              }}
+              className="flex-1"
+            >
               <div className="flex items-center justify-between">
                 <h4>Frontend</h4>{" "}
                 <InterfaceIcon className="w-20 h-20 ml-auto" />
               </div>
               <ul>{selectedLanguage.skills.frontend}</ul>
             </Card>
-            <Card className="flex-1">
+            <Card
+              ref={(element) => {
+                if (element) elements.current[10] = element;
+              }}
+              className="flex-1"
+            >
               <div className="flex items-center justify-between">
                 <h4>{selectedLanguage.skills.backend.title}</h4>
                 <DatabaseIcon className="w-20 h-20 ml-auto" />
@@ -184,7 +269,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section
+          ref={(element) => {
+            if (element) elements.current[11] = element;
+          }}
+        >
           <h3>{selectedLanguage.projects.title}</h3>
         </section>
       </main>
