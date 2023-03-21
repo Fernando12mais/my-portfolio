@@ -96,11 +96,15 @@ export default function Home() {
           </div>
           <ul className="mt-4 text-center">{selectedLanguage.about.content}</ul>
           <div className="text-5xl mt-4 flex justify-center gap-4">
-            <Link href="#">
-              <AiOutlineWhatsApp color="#6edaa4" />
+            <Link href=" https://wa.me/5551997006226">
+              <button>
+                <AiOutlineWhatsApp color="#6edaa4" />
+              </button>
             </Link>
-            <Link href="#">
-              <AiOutlineLinkedin color="#07b0cc" />
+            <Link href="https://www.linkedin.com/in/fernando-fernandes-b692531a3/">
+              <button>
+                <AiOutlineLinkedin color="#07b0cc" />
+              </button>
             </Link>
           </div>
 
