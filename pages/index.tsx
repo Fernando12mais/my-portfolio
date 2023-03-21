@@ -52,7 +52,7 @@ export default function Home() {
   };
 
   const easterEggPhrase =
-    language === "eng"
+    language === "eng" && !showRealEasterEgg
       ? "You can move my picture around, nice that you found this easter egg! Oh my gosh, the world is collapsing, run for your live!!!"
       : "Agora você pode mover minha for por aí, parabéns por ter encontrado esse easter egg! Meu deus, O mundo está entrando em colapso, corra por sua vida!!!";
 
