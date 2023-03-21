@@ -36,7 +36,7 @@ export default function Home() {
         <title>Fernando`s porfolio</title>
         <meta
           name="description"
-          content="My personal portfolio, I am a frontend developer who loves to contribute on building amazing websites with React, Typescript, and other frontend technologies"
+          content="Hi, my name is Fernando Fernandes,I am a frontend developer who loves to contribute on building amazing websites with React, Typescript, and other frontend technologies"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
