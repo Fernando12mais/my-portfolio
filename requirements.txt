@@ -1,0 +1,7 @@
+1.Have a way to download my CV.
+2.Have text about the works that i did and some description about me.
+3.Have show case projects if available.
+4.Have picture of myself in 3d.
+5.Have a way to contact me via whatapp, linkedin.
+6.Have a way to change the language to english and portuguese.
+7.change theme by the user preference
