@@ -29,7 +29,6 @@ export default function Home() {
   const randomStatusCode =
     statusCodes[(statusCodes.length * Math.random()) | 0];
 
-  console.log({ randomStatusCode });
   useEffect(() => {
     setDarkMode(localStorage.getItem("theme") === "dark");
   }, []);
