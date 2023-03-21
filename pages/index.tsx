@@ -26,8 +26,9 @@ export default function Home() {
   const [myPicture, setMyPicture] = useState(fernando3d);
   const [showRealEasterEgg, setShowRealEasterEgg] = useState(false);
 
-  const randomStatusCode =
-    statusCodes[(statusCodes.length * Math.random()) | 0];
+  const randomStatusCode = statusCodes.at(
+    statusCodes.length * Math.random() || 0
+  );
 
   useEffect(() => {
     setDarkMode(localStorage.getItem("theme") === "dark");
