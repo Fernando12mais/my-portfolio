@@ -96,7 +96,13 @@ export default function Home() {
           </div>
           <ul className="mt-4 text-center">{selectedLanguage.about.content}</ul>
           <div className="text-5xl mt-4 flex justify-center gap-4">
-            <Link href=" https://wa.me/5551997006226">
+            <Link
+              href={`https://wa.me/5551997006226/?text=${
+                language === "pt"
+                  ? "Olá Fernando,Poderia me ajudar a desenvolver um projeto?"
+                  : "Hi Fernando,can you help me build a project?"
+              }`}
+            >
               <button>
                 <AiOutlineWhatsApp color="#6edaa4" />
               </button>
