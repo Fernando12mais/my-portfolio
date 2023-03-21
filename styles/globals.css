@@ -38,7 +38,10 @@ h4 {
 :not(nav) > ul > li {
   @apply list-disc ml-4 text-white list-inside xl:text-2xl;
 }
-
+.scale-all > * {
+  transition-duration: 25s;
+  @apply text-[2rem] lg:text-[8rem];
+}
 .st0 {
   fill: #b22234;
 }

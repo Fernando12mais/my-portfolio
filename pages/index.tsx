@@ -1,7 +1,7 @@
 import PrimaryButton from "@/components/primary-button";
 import Head from "next/head";
 import { AiOutlineWhatsApp, AiOutlineLinkedin } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FlagUsa from "@/public/icons/flag-usa";
 import FlagBrazil from "@/public/icons/flag-brazil";
 
@@ -13,15 +13,35 @@ import Card from "@/components/card";
 import InterfaceIcon from "@/public/icons/user-interface-svgrepo-com";
 import DatabaseIcon from "@/public/icons/database-icon";
 import languages from "@/languages";
-
+import fernandoPicture from "../public/foto-perfil.jpeg";
+import Draggable from "react-draggable";
+const showEasterEggTimer = 25 * 1000;
+const statusCodes = [
+  100, 101, 102, 103, 200, 201, 202, 203, 204, 401, 405, 411, 599,
+];
 export default function Home() {
   const [language, setLanguage] =
     useState<keyof ReturnType<typeof languages>>("pt");
   const [darkMode, setDarkMode] = useState(true);
+  const [myPicture, setMyPicture] = useState(fernando3d);
+  const [showRealEasterEgg, setShowRealEasterEgg] = useState(false);
 
+  const randomStatusCode =
+    statusCodes[(statusCodes.length * Math.random()) | 0];
+
+  console.log({ randomStatusCode });
   useEffect(() => {
     setDarkMode(localStorage.getItem("theme") === "dark");
   }, []);
+
+  useEffect(() => {
+    if (myPicture === fernandoPicture) {
+      const timeout = setTimeout(() => {
+        setShowRealEasterEgg(true);
+      }, showEasterEggTimer);
+      return () => clearTimeout(timeout);
+    }
+  }, [myPicture]);
 
   const selectedLanguage = languages(darkMode)[language];
 
@@ -30,8 +50,18 @@ export default function Home() {
     localStorage.setItem("theme", !darkMode ? "dark" : "light");
     setDarkMode(!darkMode);
   };
+
+  const easterEggPhrase =
+    language === "eng"
+      ? "You can move my picture around, nice that you found this easter egg! Oh my gosh, the world is collapsing, run for your live!!!"
+      : "Agora você pode mover minha for por aí, parabéns por ter encontrado esse easter egg! Meu deus, O mundo está entrando em colapso, corra por sua vida!!!";
+
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div
+      className={`${darkMode ? "dark" : ""} ${
+        myPicture === fernandoPicture && !showRealEasterEgg ? "scale-all" : ""
+      }`}
+    >
       <Head>
         <title>Fernando`s porfolio</title>
         <meta
@@ -73,27 +103,48 @@ export default function Home() {
 
         <section className="max-w-7xl mx-auto">
           <h1
-            className={`text-center text-3xl text-transparent bg-clip-text bg-gradient-to-r  from-[#00923f] to-[#f8c300] mb-4 mt-4 xl:text-7xl ${
+            className={`relative text-center text-3xl text-transparent bg-clip-text bg-gradient-to-r  from-[#00923f] to-[#f8c300] mb-4 mt-4 xl:text-7xl ${
               language == "eng"
                 ? "from-[#b22234] via-[#ffffff] to-[#1a16c8]"
                 : ""
-            } `}
+            }`}
           >
-            Fernando Fernandes
+            {showRealEasterEgg ? (
+              <div className="relative w-44 h-44 mx-auto xl:w-96 xl:h-96">
+                <Image
+                  src={`https://http.cat/${randomStatusCode}`}
+                  alt="A fun image of a cat"
+                  layout="fill"
+                />
+              </div>
+            ) : (
+              "Fernando Fernandes"
+            )}
           </h1>
 
           <h2>{selectedLanguage.role}</h2>
           <p className="text-center mt-4">{selectedLanguage.description}</p>
 
           <h3>{selectedLanguage.about.title}</h3>
-          <div className="relative w-44 h-44 mx-auto">
-            <Image
-              src={fernando3d}
-              alt="Fernando`s picture in 3d"
-              layout="fill"
-              className="rounded-full"
-            />
-          </div>
+          <Draggable
+            onDrag={(event) => {
+              if (myPicture !== fernandoPicture) setMyPicture(fernandoPicture);
+            }}
+          >
+            <div className="w-44 h-44 mx-auto relative">
+              <Image
+                src={myPicture}
+                alt="Fernando`s picture "
+                layout="fill"
+                className="rounded-full hover:cursor-grab active:cursor-grabbing"
+              />
+            </div>
+          </Draggable>
+          {myPicture === fernandoPicture && (
+            <p className="text-amber-300 xl:text-2xl text-center">
+              {easterEggPhrase}
+            </p>
+          )}
           <ul className="mt-4 text-center">{selectedLanguage.about.content}</ul>
           <div className="text-5xl mt-4 flex justify-center gap-4">
             <Link
@@ -104,12 +155,12 @@ export default function Home() {
               }`}
             >
               <button>
-                <AiOutlineWhatsApp color="#6edaa4" />
+                <AiOutlineWhatsApp className="fill-[#6edaa4] hover:fill-emerald-600 active:fill-emerald-400" />
               </button>
             </Link>
             <Link href="https://www.linkedin.com/in/fernando-fernandes-b692531a3/">
               <button>
-                <AiOutlineLinkedin color="#07b0cc" />
+                <AiOutlineLinkedin className="fill-[#07b0cc] hover:fill-cyan-600 active:fill-cyan-400" />
               </button>
             </Link>
           </div>
