@@ -4,11 +4,11 @@ export default function FlagBrazil(props: ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      text-rendering="geometricPrecision"
-      fill-rule="evenodd"
+      textRendering="geometricPrecision"
+      fillRule="evenodd"
       xmlSpace="preserve"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
       viewBox="0 0 100000 70000"
       {...props}
     >

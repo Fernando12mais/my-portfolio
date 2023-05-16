@@ -16,14 +16,14 @@ import fernandoPicture from "../public/foto-perfil.jpeg";
 export default function Home() {
   const [language, setLanguage] =
     useState<keyof ReturnType<typeof languages>>("pt");
-  const [darkMode, setDarkMode] = useState(true);
 
   const firstRenderRef = useRef(true);
 
   const elements = useRef<HTMLElement[]>([]);
+  const mainRef = useRef<HTMLElement>(null);
+  const hueRef = useRef(0);
 
   useEffect(() => {
-    setDarkMode(localStorage.getItem("theme") === "dark");
     const observer = new IntersectionObserver((entries) =>
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -43,19 +43,24 @@ export default function Home() {
     };
   }, []);
 
-  const selectedLanguage = languages(darkMode)[language];
+  useEffect(() => {
+    function animate() {
+      if (!mainRef.current) return;
+      mainRef.current.style.background = `hsl(${hueRef.current},60%,15%)`;
+
+      hueRef.current += 0.1;
+
+      window.requestAnimationFrame(animate);
+    }
+    animate();
+  }, []);
+
+  const selectedLanguage = languages()[language];
 
   const handleSelectLanguage = (lang: typeof language) => setLanguage(lang);
-  const handleDarkMode = () => {
-    localStorage.setItem("theme", !darkMode ? "dark" : "light");
-    setDarkMode(!darkMode);
-  };
 
   return (
-    <div
-      className={`${darkMode ? "dark" : ""} 
-       `}
-    >
+    <div>
       <Head>
         <title>Fernando`s porfolio</title>
         <meta
@@ -64,7 +69,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="dark:bg-slate-700 bg-slate-600 min-h-screen py-4 px-4 duration-500">
+
+      <main ref={mainRef} className=" min-h-screen py-4 px-4 ">
         <header>
           <nav>
             <ul className="flex gap-3 items-center">
@@ -85,11 +91,6 @@ export default function Home() {
                 <button onClick={() => handleSelectLanguage("eng")}>
                   <FlagUsa className="w-8 lg:w-20" />
                 </button>
-              </li>
-              <li className="ml-auto" onClick={handleDarkMode}>
-                <PrimaryButton className="bg-slate-300 text-slate-800 dark:text-slate-200">
-                  {selectedLanguage.darkmode}
-                </PrimaryButton>
               </li>
             </ul>
           </nav>

@@ -1,8 +1,7 @@
 import Tag from "@/components/tag";
 
-const languages = (darkMode: boolean) => ({
+const languages = () => ({
   eng: {
-    darkmode: darkMode ? "Lightmode" : "Darkmode",
     role: "Frontend developer",
     description: (
       <>
@@ -58,7 +57,6 @@ const languages = (darkMode: boolean) => ({
     },
   },
   pt: {
-    darkmode: darkMode ? "Tema claro" : "Tema escuro",
     role: "Desenvolvedor front-end",
     description: (
       <>
