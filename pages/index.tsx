@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import FlagUsa from "@/public/icons/flag-usa";
 import FlagBrazil from "@/public/icons/flag-brazil";
 
-import fernando3d from "../public/fernando-3d.jpg";
-
 import Image from "next/image";
 import Link from "next/link";
 import Card from "@/components/card";
@@ -14,25 +12,15 @@ import InterfaceIcon from "@/public/icons/user-interface-svgrepo-com";
 import DatabaseIcon from "@/public/icons/database-icon";
 import languages from "@/languages";
 import fernandoPicture from "../public/foto-perfil.jpeg";
-import Draggable from "react-draggable";
-const showEasterEggTimer = 25 * 1000;
-const statusCodes = [
-  100, 101, 102, 103, 200, 201, 202, 203, 204, 401, 405, 411, 599,
-];
 
 export default function Home() {
   const [language, setLanguage] =
     useState<keyof ReturnType<typeof languages>>("pt");
   const [darkMode, setDarkMode] = useState(true);
-  const [myPicture, setMyPicture] = useState(fernando3d);
-  const [showRealEasterEgg, setShowRealEasterEgg] = useState(false);
+
   const firstRenderRef = useRef(true);
 
   const elements = useRef<HTMLElement[]>([]);
-
-  const randomStatusCode = statusCodes.at(
-    statusCodes.length * Math.random() || 0
-  );
 
   useEffect(() => {
     setDarkMode(localStorage.getItem("theme") === "dark");
@@ -54,17 +42,6 @@ export default function Home() {
       firstRenderRef.current = false;
     };
   }, []);
-
-  console.log(elements);
-
-  useEffect(() => {
-    if (myPicture === fernandoPicture) {
-      const timeout = setTimeout(() => {
-        setShowRealEasterEgg(true);
-      }, showEasterEggTimer);
-      return () => clearTimeout(timeout);
-    }
-  }, [myPicture]);
 
   const selectedLanguage = languages(darkMode)[language];
 
