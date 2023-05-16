@@ -74,16 +74,10 @@ export default function Home() {
     setDarkMode(!darkMode);
   };
 
-  const easterEggPhrase =
-    language === "eng" && !showRealEasterEgg
-      ? "You can move my picture around, nice that you found this easter egg! Oh my gosh, the world is collapsing, run for your live!!!"
-      : "Agora você pode mover minha for por aí, parabéns por ter encontrado esse easter egg! Meu deus, O mundo está entrando em colapso, corra por sua vida!!!";
-
   return (
     <div
-      className={`${darkMode ? "dark" : ""} ${
-        myPicture === fernandoPicture && !showRealEasterEgg ? "scale-all" : ""
-      } `}
+      className={`${darkMode ? "dark" : ""} 
+       `}
     >
       <Head>
         <title>Fernando`s porfolio</title>
@@ -135,17 +129,7 @@ export default function Home() {
                 : ""
             }`}
           >
-            {showRealEasterEgg ? (
-              <div className="relative w-44 h-44 mx-auto xl:w-96 xl:h-96">
-                <Image
-                  src={`https://http.cat/${randomStatusCode}`}
-                  alt="A fun image of a cat"
-                  layout="fill"
-                />
-              </div>
-            ) : (
-              "Fernando Fernandes"
-            )}
+            Fernando Fernandes
           </h1>
 
           <h2
@@ -173,35 +157,17 @@ export default function Home() {
           >
             {selectedLanguage.about.title}
           </h3>
-          <Draggable
-            onDrag={() => {
-              if (myPicture !== fernandoPicture) setMyPicture(fernandoPicture);
-            }}
-          >
-            <div
-              ref={(element) => {
-                if (element) elements.current[4] = element;
-              }}
-              className="w-44 h-44 mx-auto relative"
-            >
-              <Image
-                src={myPicture}
-                alt="Fernando`s picture "
-                layout="fill"
-                className="rounded-full hover:cursor-grab active:cursor-grabbing"
-              />
-            </div>
-          </Draggable>
-          {myPicture === fernandoPicture && (
-            <p
-              ref={(element) => {
-                if (element) elements.current[5] = element;
-              }}
-              className="text-amber-300 xl:text-2xl text-center"
-            >
-              {easterEggPhrase}
-            </p>
-          )}
+
+          <div className="flex items-center justify-center my-4">
+            <Image
+              src={fernandoPicture}
+              alt="Fernando`s picture "
+              width={400}
+              height={400}
+              className="rounded-full  w-4 h-4 mx-auto"
+            />
+          </div>
+
           <ul
             ref={(element) => {
               if (element) elements.current[6] = element;

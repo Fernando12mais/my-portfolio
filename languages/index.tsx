@@ -106,7 +106,7 @@ const languages = (darkMode: boolean) => ({
             <li>NextJs</li>
           </>
         ),
-        title: "Backend (Aprendendo)",
+        title: "Backend",
       },
     },
     projects: {
