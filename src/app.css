@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-title text-primary-content select-none;
+}
+
+h1 {
+  @apply text-big3;
+}
+
+h2 {
+  @apply text-big2;
+}
+
+p,
+span,
+li,
+button {
+  @apply font-content text-primary-content select-none;
+}
