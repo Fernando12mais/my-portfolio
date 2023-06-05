@@ -12,6 +12,32 @@ export default {
             boxShadow: "0 0 1.25rem 0rem #1AD6FF",
           },
         },
+        grow: {
+          "0%": {
+            width: ".625rem",
+            color: "transparent",
+            fontSize: 0,
+          },
+
+          "25%": {
+            fontSize: 16,
+          },
+          "50%": {
+            fontSize: 32,
+          },
+          "100%": {
+            width: "100%",
+            fontSize: 32,
+          },
+        },
+        scale: {
+          "0%": {
+            transform: "scale(.7)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
       },
       colors: {
         primary: {
@@ -36,6 +62,7 @@ export default {
       maxWidth: {
         max: "90%",
         half: "50%",
+        "8xl": "90rem",
       },
       backgroundImage: {
         portfolio1: "url(/src/assets/stain.svg)",
@@ -45,6 +72,8 @@ export default {
 
       animation: {
         lighting: "light 1s infinite alternate",
+        grow: "grow 3s forwards ease-out",
+        scale: "scale .5s infinite alternate ease-in-out",
       },
 
       boxShadow: {

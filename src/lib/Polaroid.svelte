@@ -1,5 +1,5 @@
 <script>
-  import PinIcon from "./PinIcon.svelte";
+  import PinIcon from "./icons/PinIcon.svelte";
 
   export let companyName = "";
   export let position = "";

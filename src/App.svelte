@@ -1,25 +1,26 @@
 <script lang="ts">
-  import WhatsappIcon from "./lib/WhatsappIcon.svelte";
-  import GmailIcon from "./lib/GmailIcon.svelte";
-  import LinkedinIcon from "./lib/LinkedinIcon.svelte";
+  import WhatsappIcon from "./lib/icons/WhatsappIcon.svelte";
+  import GmailIcon from "./lib/icons/GmailIcon.svelte";
+  import LinkedinIcon from "./lib/icons/LinkedinIcon.svelte";
   import ButtonIcon from "./lib/ButtonIcon.svelte";
-  import FigmaIcon from "./lib/FigmaIcon.svelte";
-  import ReactIcon from "./lib/ReactIcon.svelte";
-  import HtmlIcon from "./lib/HTMLIcon.svelte";
-  import CssIcon from "./lib/CSSIcon.svelte";
-  import JavascriptIcon from "./lib/JavascriptIcon.svelte";
-  import TypescriptIcon from "./lib/TypescriptIcon.svelte";
-  import MongoDbIcon from "./lib/MongoDBIcon.svelte";
-  import NodeJsIcon from "./lib/NodeJsIcon.svelte";
-  import StyledComponentsIcon from "./lib/StyledComponentsIcon.svelte";
-  import TailwindIcon from "./lib/TailwindIcon.svelte";
-  import GitIcon from "./lib/GitIcon.svelte";
-  import NextJsIcon from "./lib/NextJsIcon.svelte";
+  import FigmaIcon from "./lib/icons/FigmaIcon.svelte";
+  import ReactIcon from "./lib/icons/ReactIcon.svelte";
+  import HtmlIcon from "./lib/icons/HTMLIcon.svelte";
+  import CssIcon from "./lib/icons/CSSIcon.svelte";
+  import JavascriptIcon from "./lib/icons/JavascriptIcon.svelte";
+  import TypescriptIcon from "./lib/icons/TypescriptIcon.svelte";
+  import MongoDbIcon from "./lib/icons/MongoDBIcon.svelte";
+  import NodeJsIcon from "./lib/icons/NodeJsIcon.svelte";
+  import StyledComponentsIcon from "./lib/icons/StyledComponentsIcon.svelte";
+  import TailwindIcon from "./lib/icons/TailwindIcon.svelte";
+  import GitIcon from "./lib/icons/GitIcon.svelte";
+  import NextJsIcon from "./lib/icons/NextJsIcon.svelte";
   import Polaroid from "./lib/Polaroid.svelte";
   import Experience from "./lib/Experience.svelte";
-  import TimeIcon from "./lib/TimeIcon.svelte";
-  import ScreenIcon from "./lib/ScreenIcon.svelte";
-  import ApiIcon from "./lib/APIIcon.svelte";
+  import TimeIcon from "./lib/icons/TimeIcon.svelte";
+  import ScreenIcon from "./lib/icons/ScreenIcon.svelte";
+  import ApiIcon from "./lib/icons/APIIcon.svelte";
+  import Carousel from "./lib/Carousel.svelte";
 
   const icons = [
     { name: "Figma", Icon: FigmaIcon },
@@ -90,15 +91,37 @@
       </ul>
     </div>
   </section>
-  <section class="min-h-screen pt-16">
+  <section class="min-h-screen pt-16 max-w-8xl mx-auto">
     <div class="flex">
-      <div class="flex flex-1 justify-center items-center">
-        <Polaroid
-          companyName="Paipe-Tecnologia e inovação"
-          from="May 2021"
-          to="Jul 2022"
-          position="Frontend developer"
-        />
+      <div class="flex flex-1 items-center gap-16">
+        <Carousel
+          onNext={(index) => {
+            console.log(index);
+          }}
+          onPrev={(index) => {
+            console.log(index);
+          }}
+        >
+          <Polaroid
+            companyName="Paipe-Tecnologia e inovação"
+            from="May 2021"
+            to="Jul 2022"
+            position="Frontend developer"
+          />
+          <Polaroid
+            companyName="Taipe-Tecnologia e inovação"
+            from="May 2021"
+            to="Jul 2022"
+            position="Frontend developer"
+          />
+
+          <Polaroid
+            companyName="Faipe-Tecnologia e inovação"
+            from="May 2021"
+            to="Jul 2022"
+            position="Frontend developer"
+          />
+        </Carousel>
       </div>
 
       <div class="flex-1">

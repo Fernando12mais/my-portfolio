@@ -7,7 +7,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+html {
+  @apply scroll-smooth;
+}
 h1,
 h2,
 h3,
@@ -28,4 +30,21 @@ span,
 li,
 button {
   @apply font-content text-primary-content select-none;
+}
+
+.rotate-90deg {
+  rotate: 90deg;
+}
+.-rotate-90deg {
+  rotate: -90deg;
+}
+
+.arrow:hover {
+  animation-play-state: paused;
+}
+.go-to-right {
+  translate: calc(100% + 64px);
+}
+.go-to-left {
+  translate: calc(-100% - 64px);
 }
