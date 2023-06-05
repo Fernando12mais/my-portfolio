@@ -17,19 +17,19 @@ h4 {
   @apply font-title text-primary-content select-none;
 }
 
-h1 {
-  @apply text-big3;
-}
-
-h2 {
-  @apply text-big2;
-}
-
 p,
 span,
 li,
 button {
   @apply font-content text-primary-content select-none;
+}
+
+h1 {
+  @apply text-5xl sm:text-7xl lg:text-9xl;
+}
+
+h2 {
+  @apply text-5xl lg:text-7xl xl:text-8xl;
 }
 
 .rotate-90deg {
@@ -47,4 +47,9 @@ button {
 }
 .go-to-left {
   translate: calc(-100% - 64px);
+}
+
+.absolute-center {
+  translate: 0 -50%;
+  @apply absolute top-1/2;
 }

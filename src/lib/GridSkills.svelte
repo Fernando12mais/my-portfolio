@@ -30,7 +30,7 @@
 </script>
 
 <div class="bg-primary-background/20 backdrop-blur-[2rem] p-8 rounded-md">
-  <ul class="grid grid-cols-4 gap-8">
+  <ul class="grid grid-cols-3 sm:grid-cols-4 gap-8 lg:gap-10">
     {#each icons as { Icon, name }}
       <FadeIn>
         <li
@@ -38,7 +38,7 @@
         >
           <Icon />
 
-          <p>{name}</p>
+          <p class="lg:text-2xl">{name}</p>
         </li>
       </FadeIn>
     {/each}

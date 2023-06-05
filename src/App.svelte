@@ -6,8 +6,8 @@
   import ApiIcon from "./lib/icons/APIIcon.svelte";
   import Carousel from "./lib/Carousel.svelte";
   import GridSkills from "./lib/GridSkills.svelte";
-  import Footer from "./lib/Footer.svelte";
   import TeachIcon from "./lib/icons/TeachIcon.svelte";
+  import { SwipeItem } from "svelte-swipe";
 
   let index = 0;
 
@@ -30,7 +30,7 @@
       position: "Frontend developer",
       experience: [
         { Icon: TimeIcon, info: "10 meses de experiência" },
-        { Icon: TeachIcon, info: "Treinamento de programadores trainees" },
+        { Icon: TeachIcon, info: "Treinamento de programadores" },
         { Icon: ScreenIcon, info: "Desenvolvimento de interfaces" },
       ],
     },
@@ -39,59 +39,59 @@
 
 <main class="w-full">
   <section
-    class="min-h-screen bg-portfolio1 w-full bg-no-repeat bg-right flex flex-col lg:flex-row bg-cover"
+    class="min-h-screen bg-portfolio1 w-full bg-no-repeat bg-center flex flex-col lg:flex-row xl:bg-cover xl:bg-left"
   >
-    <div class="flex-1 px-4 lg:px-16">
-      <header class="w-full pt-16">
-        <p class="text-small lg:text-big">Frontend developer</p>
-        <p class="text-small lg:text-big">Inglês fluente</p>
+    <div class="flex-1 p-8">
+      <header class="w-full">
+        <p class="text-4xl sm:text-5xl">Frontend developer</p>
+        <p class="text-4xl sm:text-5xl">Inglês fluente</p>
       </header>
     </div>
 
-    <div class="flex-1 flex justify-center items-center pr-10">
-      <h1 class="font-title text-small">Fernando fernandes</h1>
+    <div class="flex-1 flex justify-center lg:items-center lg:justify-start">
+      <h1 class="font-title">Fernando fernandes</h1>
     </div>
 
-    <Footer />
+    <!-- <Footer /> -->
   </section>
 
-  <!-- <section
-    class="min-h-screen bg-portfolio2 bg-no-repeat bg-cover flex flex-col items-center justify-center relative"
+  <section
+    class="min-h-screen bg-portfolio2 bg-no-repeat bg-cover flex flex-col items-center justify-center gap-8 relative p-4 lg:min-h-0 lg:py-28 lg:max-w-none"
   >
-    <h2 class="font-title leading-[8.75rem]">Habilidades</h2>
+    <h2 class="font-title">Habilidades</h2>
     <GridSkills />
-  </section> -->
-  <!-- <section class="min-h-screen pt-16 max-w-8xl mx-auto">
-    <div class="flex">
-      <div class="flex flex-1 items-center gap-16">
+  </section>
+  <section
+    class="min-h-screen pt-16 max-w-9xl sm:max-w-xl lg:max-w-none mx-auto px-4 lg:min-h-0"
+  >
+    <h2 class="font-title text-center mb-8">Experiências</h2>
+    <div class="flex flex-col lg:flex-row">
+      <div class="flex-1 mb-6">
         <Carousel
-          onNext={(newIndex) => {
-            index = newIndex;
-          }}
-          onPrev={(newIndex) => {
+          onSlideChange={(newIndex) => {
             index = newIndex;
           }}
         >
           {#each companies as company}
-            <Polaroid
-              companyName={company.companyName}
-              from={company.from}
-              position={company.position}
-              to={company.to}
-            />
+            <SwipeItem>
+              <Polaroid
+                companyName={company.companyName}
+                from={company.from}
+                position={company.position}
+                to={company.to}
+              />
+            </SwipeItem>
           {/each}
         </Carousel>
       </div>
 
       <div class="flex-1">
-        <h2 class="font-title leading-[8.75rem] mb-8">Experiências</h2>
-
         <Experience experienceDetails={companies[index].experience} />
       </div>
     </div>
     <button
-      class="border-primary-action border-2 mx-auto block py-4 px-14 text-small rounded-lg -translate-x-1/2 text-primary-content mt-14"
+      class="border-primary-action border-2 mx-auto block py-4 px-14 text-xl rounded-lg text-primary-content my-14"
       >Mais detalhes</button
     >
-  </section> -->
+  </section>
 </main>

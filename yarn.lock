@@ -900,6 +900,11 @@ svelte-preprocess@^5.0.3:
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
 
+svelte-swipe@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/svelte-swipe/-/svelte-swipe-1.9.2.tgz#3de4b9b16c8bb0428316bd373beec5caf314ec96"
+  integrity sha512-yJ2LuJnQvGw6jEvRMBRbbu5eeoQSKcHjONqn+fJ06qI09fvjsLqbe0MjPehwuAtNjiuR0w51Ofa9418ilYn1Lg==
+
 svelte@^3.58.0:
   version "3.59.1"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.59.1.tgz#3de3d56b9165748f32f3131589b8d183cabe7449"

@@ -1,65 +1,49 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { Swipe } from "svelte-swipe";
+  import type { SwipeProps } from "svelte-swipe/dist/Swipe.svelte";
   import Arrow from "./icons/Arrow.svelte";
+  let SwipeComp: Swipe;
+  export let onSlideChange: (index: number) => void;
+  const swipeConfig: SwipeProps = {
+    autoplay: false,
+    delay: 2000,
+    showIndicators: true,
+    transitionDuration: 1000,
+    defaultIndex: 0,
+  };
 
-  let wrapper: HTMLDivElement;
-  let index = 0;
-  let gap = 100;
-  let padding = 64;
-  export let onNext: (index: number) => void;
-  export let onPrev: (index: number) => void;
+  function nextSlide() {
+    SwipeComp.nextItem();
+  }
 
-  onMount(() => {
-    let childrenSize = wrapper.children[0].clientWidth;
-    wrapper.style.maxWidth = `${childrenSize + padding * 2}px`;
-    wrapper.style.padding = `${padding}px`;
-    wrapper.style.gap = `${gap}px`;
-
-    Array.from(wrapper.children).forEach((children: HTMLDivElement, index) => {
-      if (index == 0) return;
-
-      children.style.position = "absolute";
-      children.style.left = `${childrenSize + gap + padding}px`;
-    });
-  });
+  function prevSlide() {
+    SwipeComp.prevItem();
+  }
 </script>
 
-<div class="flex">
-  <button
-    class="animate-scale -rotate-90deg fill-primary-content/50 hover:fill-primary-action arrow active:fill-primary-action/70 z-10 disabled:animate-none disabled:fill-primary-content/20"
-    disabled={index == 0}
-    on:click={() => {
-      const currentChildren = wrapper.children[index];
-      currentChildren.classList.add("duration-1000");
-      currentChildren.classList.add("ease-in-out");
-      currentChildren.classList.remove("go-to-left");
-      currentChildren.classList.add("go-to-right");
-      index -= 1;
-
-      onPrev(index);
+<div class="h-64 sm:h-[20rem] lg:h-[25rem] 2xl:h-[41rem] px-4 relative">
+  <Swipe
+    on:change={(e) => {
+      console.log(e);
+      onSlideChange(e.detail.active_item);
     }}
+    bind:this={SwipeComp}
+    {...swipeConfig}
   >
-    <Arrow />
-  </button>
-  <div bind:this={wrapper} class="flex overflow-hidden relative">
     <slot />
-  </div>
+  </Swipe>
 
   <button
-    disabled={index == wrapper?.children.length - 1}
-    class="animate-scale rotate-90deg fill-primary-content/50 hover:fill-primary-action arrow active:fill-primary-action/70 z-10 disabled:animate-none disabled:fill-primary-content/20"
-    on:click={() => {
-      index += 1;
-      const currentChildren = wrapper.children[index];
-
-      currentChildren.classList.add("duration-1000");
-      currentChildren.classList.add("ease-in-out");
-      currentChildren.classList.remove("go-to-right");
-      currentChildren.classList.add("go-to-left");
-
-      onNext(index);
-    }}
+    class="animate-scale -rotate-90deg fill-primary-content/50 hover:fill-primary-action arrow active:fill-primary-action/70 z-10 disabled:animate-none disabled:fill-primary-content/20 left-0 absolute-center"
+    on:click={prevSlide}
   >
-    <Arrow />
+    <Arrow className="xl:w-20 xl:h-20" />
+  </button>
+
+  <button
+    class="animate-scale rotate-90deg fill-primary-content/50 hover:fill-primary-action arrow active:fill-primary-action/70 z-10 disabled:animate-none disabled:fill-primary-content/20 right-0 absolute-center"
+    on:click={nextSlide}
+  >
+    <Arrow className="xl:w-20 xl:h-20" />
   </button>
 </div>

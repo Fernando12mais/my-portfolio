@@ -14,20 +14,11 @@ export default {
         },
         grow: {
           "0%": {
-            width: ".625rem",
-            color: "transparent",
-            fontSize: 0,
+            width: "0%",
           },
 
-          "25%": {
-            fontSize: 16,
-          },
-          "50%": {
-            fontSize: 32,
-          },
           "100%": {
             width: "100%",
-            fontSize: 32,
           },
         },
         scale: {
@@ -62,17 +53,11 @@ export default {
         title: "Pinyon Script, cursive",
       },
 
-      fontSize: {
-        small: "2rem",
-        medium: "2.25rem",
-        big: "3rem",
-        big2: "5rem",
-        big3: "10rem",
-      },
       maxWidth: {
         max: "90%",
         half: "50%",
         "8xl": "90rem",
+        "9xl": "120rem",
       },
       backgroundImage: {
         portfolio1: "url(/src/assets/stain.svg)",
@@ -82,7 +67,7 @@ export default {
 
       animation: {
         lighting: "light 1s infinite alternate",
-        grow: "grow 3s forwards ease-out",
+        grow: "grow 1.5s forwards ease-out",
         scale: "scale .5s infinite alternate ease-in-out",
         "fade-in": "fadeIn 1s ease-in-out",
       },

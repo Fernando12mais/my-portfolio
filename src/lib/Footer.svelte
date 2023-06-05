@@ -5,22 +5,22 @@
   import ButtonIcon from "./ButtonIcon.svelte";
 </script>
 
-<footer
-  class="flex flex-col fixed bottom-0 max-w-max w-full mt-auto pb-16 px-16 z-10"
->
-  <p class="text-big">Contate-me</p>
+<div class="bg-slate-800 fixed bottom-0 z-10 w-full">
+  <footer class="flex flex-col pb-8 px-16">
+    <p class="text-4xl sm:text-5xl text-center">Contate-me</p>
 
-  <div class="flex items-center gap-6">
-    <ButtonIcon>
-      <WhatsappIcon />
-    </ButtonIcon>
+    <div class="flex items-center justify-center gap-6">
+      <ButtonIcon>
+        <WhatsappIcon />
+      </ButtonIcon>
 
-    <ButtonIcon>
-      <GmailIcon />
-    </ButtonIcon>
+      <ButtonIcon>
+        <GmailIcon />
+      </ButtonIcon>
 
-    <ButtonIcon>
-      <LinkedinIcon />
-    </ButtonIcon>
-  </div>
-</footer>
+      <ButtonIcon>
+        <LinkedinIcon />
+      </ButtonIcon>
+    </div>
+  </footer>
+</div>
