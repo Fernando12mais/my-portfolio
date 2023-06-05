@@ -5,7 +5,9 @@
   export let experienceDetails: { Icon: ComponentType; info: string }[];
 </script>
 
-<ul class="flex flex-col px-4 gap-8 lg:gap-20 xl:gap-40">
+<ul
+  class="flex flex-col px-4 gap-8 lg:gap-20 xl:gap-28 xl:justify-center xl:h-full"
+>
   {#each experienceDetails as { Icon, info }}
     <li class="flex">
       {#key info}

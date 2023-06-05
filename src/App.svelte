@@ -8,6 +8,7 @@
   import GridSkills from "./lib/GridSkills.svelte";
   import TeachIcon from "./lib/icons/TeachIcon.svelte";
   import { SwipeItem } from "svelte-swipe";
+  import Footer from "./lib/Footer.svelte";
 
   let index = 0;
 
@@ -51,8 +52,6 @@
     <div class="flex-1 flex justify-center lg:items-center lg:justify-start">
       <h1 class="font-title">Fernando fernandes</h1>
     </div>
-
-    <!-- <Footer /> -->
   </section>
 
   <section
@@ -89,9 +88,18 @@
         <Experience experienceDetails={companies[index].experience} />
       </div>
     </div>
-    <button
-      class="border-primary-action border-2 mx-auto block py-4 px-14 text-xl rounded-lg text-primary-content my-14"
-      >Mais detalhes</button
+    <a
+      href="https://api.whatsapp.com/send/?phone=5551997006226&text=Olá Fernando vi seu portfolio e gostaria de te conhecer melhor, você está disponível para uma conversa?&type=phone_number&app_absent=0"
+      target="_blank"
+      class="border-primary-action border-2 mx-auto block py-4 px-14 text-xl rounded-lg text-primary-content my-14 w-fit lg:text-2xl"
+      >Mais detalhes</a
     >
   </section>
+
+  <footer
+    class="pt-16 mx-auto mb-4 px-4 flex flex-wrap justify-center items-center"
+  >
+    <h2 class="font-title text-center mb-8">Contate-me</h2>
+    <Footer />
+  </footer>
 </main>
