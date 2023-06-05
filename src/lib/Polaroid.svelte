@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import PinIcon from "./icons/PinIcon.svelte";
 
   export let companyName = "";

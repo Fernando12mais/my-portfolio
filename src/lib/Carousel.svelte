@@ -4,7 +4,7 @@
 
   let wrapper: HTMLDivElement;
   let index = 0;
-  let gap = 64;
+  let gap = 100;
   let padding = 64;
   export let onNext: (index: number) => void;
   export let onPrev: (index: number) => void;

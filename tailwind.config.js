@@ -38,6 +38,16 @@ export default {
             transform: "scale(1)",
           },
         },
+        fadeIn: {
+          from: {
+            opacity: 0,
+
+            filter: "blur(20px)",
+          },
+          to: {
+            opacity: 1,
+          },
+        },
       },
       colors: {
         primary: {
@@ -74,6 +84,7 @@ export default {
         lighting: "light 1s infinite alternate",
         grow: "grow 3s forwards ease-out",
         scale: "scale .5s infinite alternate ease-in-out",
+        "fade-in": "fadeIn 1s ease-in-out",
       },
 
       boxShadow: {
