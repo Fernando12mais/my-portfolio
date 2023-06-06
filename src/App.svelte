@@ -43,15 +43,20 @@
     class="min-h-screen bg-portfolio1 w-full bg-no-repeat bg-center flex flex-col lg:flex-row xl:bg-cover xl:bg-left"
   >
     <div class="flex-1 p-8">
-      <header class="w-full">
+      <header class="flex flex-col w-full h-full">
         <p class="text-4xl sm:text-5xl">Frontend developer</p>
-        <p class="text-4xl sm:text-5xl">Inglês fluente</p>
+        <p class="hidden lg:block text-4xl sm:text-5xl mt-auto">
+          Inglês fluente
+        </p>
       </header>
     </div>
 
     <div class="flex-1 flex justify-center lg:items-center lg:justify-start">
-      <h1 class="font-title">Fernando fernandes</h1>
+      <h1 class="font-title lg:-translate-y-0 text-center lg:text-start h-fit">
+        Fernando fernandes
+      </h1>
     </div>
+    <p class="text-4xl sm:text-5xl p-8 lg:hidden">Inglês fluente</p>
   </section>
 
   <section
