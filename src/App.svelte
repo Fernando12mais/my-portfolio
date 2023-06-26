@@ -9,6 +9,7 @@
   import TeachIcon from "./lib/icons/TeachIcon.svelte";
   import { SwipeItem } from "svelte-swipe";
   import Footer from "./lib/Footer.svelte";
+  import ProjectCard from "./lib/ProjectCard.svelte";
 
   let index = 0;
 
@@ -99,6 +100,21 @@
       class="border-primary-action border-2 mx-auto block py-4 px-14 text-xl rounded-lg text-primary-content my-14 w-fit lg:text-2xl"
       >Mais detalhes</a
     >
+  </section>
+
+  <section
+    class="pt-16 max-w-9xl sm:max-w-xl lg:max-w-none mx-auto px-4 lg:min-h-0"
+  >
+    <h2 class="font-title text-center mb-8">Meus projetos</h2>
+
+    <div class="grid">
+      <ProjectCard
+        href="https://leve-moda.vercel.app"
+        description="Um e-commerce de roupas criado com NextJs."
+        src="/leve-moda.mkv"
+        title="Leve moda"
+      />
+    </div>
   </section>
 
   <footer
