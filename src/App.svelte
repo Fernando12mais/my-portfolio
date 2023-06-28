@@ -45,7 +45,7 @@
   >
     <div class="flex-1 p-8">
       <header class="flex flex-col w-full h-full">
-        <p class="text-4xl sm:text-5xl">Frontend developer</p>
+        <p class="text-4xl sm:text-5xl">Fullstack developer</p>
         <p class="hidden lg:block text-4xl sm:text-5xl mt-auto">
           Inglês fluente
         </p>
