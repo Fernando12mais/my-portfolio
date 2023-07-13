@@ -107,12 +107,18 @@
   >
     <h2 class="font-title text-center mb-8">Meus projetos</h2>
 
-    <div class="grid">
+    <div class="grid gap-4 lg:grid-cols-2">
       <ProjectCard
         href="https://leve-moda.vercel.app"
         description="Um e-commerce de roupas criado com NextJs."
         src="/leve-moda.mkv"
         title="Leve moda"
+      />
+      <ProjectCard
+        href="https://freteaqui.vercel.app/"
+        description="Uma plataforma pra ajudar clientes e freteiros a fecharem mais negócios."
+        src="/frete-aqui.mkv"
+        title="Frete Aqui"
       />
     </div>
   </section>
