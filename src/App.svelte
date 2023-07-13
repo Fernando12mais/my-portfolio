@@ -107,7 +107,7 @@
   >
     <h2 class="font-title text-center mb-8">Meus projetos</h2>
 
-    <div class="grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 lg:grid-cols-2 w-fit mx-auto">
       <ProjectCard
         href="https://leve-moda.vercel.app"
         description="Um e-commerce de roupas criado com NextJs."

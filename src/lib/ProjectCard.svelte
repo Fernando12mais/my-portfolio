@@ -17,7 +17,7 @@
     isMouseOver = false;
   }}
   {href}
-  class="bg-primary-content rounded-lg flex flex-col gap-4 max-w-lg mx-auto hover:border-2 hover:border-primary-action relative overflow-hidden"
+  class="bg-primary-content rounded-lg h-full flex flex-col gap-4 max-w-lg mx-auto hover:border-2 hover:border-primary-action relative overflow-hidden"
   target="_blank"
 >
   <div class="p-4">
