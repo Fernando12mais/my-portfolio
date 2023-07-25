@@ -53,3 +53,12 @@ h2 {
   translate: 0 -50%;
   @apply absolute top-1/2;
 }
+
+a:hover .show-on-hover {
+  @apply translate-y-0;
+}
+
+/* The following styles will hide the .show-on-hover div by default */
+.show-on-hover {
+  @apply translate-y-full;
+}

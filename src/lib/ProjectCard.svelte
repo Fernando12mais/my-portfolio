@@ -5,17 +5,9 @@
 
   export let description: string;
   export let href: string;
-
-  let isMouseOver = false;
 </script>
 
 <a
-  on:mouseenter={() => {
-    isMouseOver = true;
-  }}
-  on:mouseleave={() => {
-    isMouseOver = false;
-  }}
   {href}
   class="bg-primary-content rounded-lg h-full flex flex-col gap-4 max-w-lg mx-auto hover:border-2 hover:border-primary-action relative overflow-hidden"
   target="_blank"
@@ -34,9 +26,7 @@
   </div>
 
   <div
-    class={`absolute bg-primary-action bottom-0 p-4 w-full text-center duration-300 transition-transform ${
-      isMouseOver ? "translate-y-0" : "translate-y-full"
-    }`}
+    class={`absolute bg-primary-action bottom-0 p-4 w-full text-center duration-300 transition-transform show-on-hover`}
   >
     Clique para ver o projeto
   </div>
